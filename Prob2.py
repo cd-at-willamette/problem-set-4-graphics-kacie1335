@@ -4,40 +4,29 @@
 # Estimated time spent (hrs):2
 ########################################
 
+
 from pgl import GWindow, GRect
 
-WIDTH = 400
-HEIGHT = 400
-BRICK_WIDTH = 20
-BRICK_HEIGHT = 10
+WIDTH = 1000
+HEIGHT = 1000
+BRICK_WIDTH = 40
+BRICK_HEIGHT = 20   
 BRICKS_IN_BASE = 15
 
 
-def draw_pyramid():
-    """ 
-    Draws a pyramid of bricks centered on the screen with a height of BRICKS_IN_BASE. 
-    """
+gw = GWindow(WIDTH, HEIGHT)
 
-    gw = GWindow(WIDTH, HEIGHT)
-    brick_y = 150
+brick_x = WIDTH/2 - ((BRICKS_IN_BASE*BRICK_WIDTH)/2)
+brick_y = HEIGHT/2 + ((BRICKS_IN_BASE*BRICK_HEIGHT)/2)
 
-    extra_brick = BRICKS_IN_BASE
-
-    # You got it from here 
-    
-    while extra_brick > 0:
-
-        brick_x = (WIDTH - (extra_brick * BRICK_WIDTH))/2
-
-        for i in range(extra_brick):
-            brick = GRect(brick_x + i * BRICK_WIDTH, brick_y, BRICK_WIDTH, BRICK_HEIGHT)
-            gw.add(brick)
-
-        brick_y -= BRICK_HEIGHT
-        extra_brick -= 1
-
-
-
+while BRICKS_IN_BASE >=0:
+    temp_x = brick_x
+    for i in range(BRICKS_IN_BASE):
+        gw.add(GRect(temp_x, brick_y, BRICK_WIDTH, BRICK_HEIGHT))
+        temp_x += BRICK_WIDTH
+    BRICKS_IN_BASE -= 1
+    brick_y -= BRICK_HEIGHT
+    brick_x += (BRICK_WIDTH)/2  
 
 
 
