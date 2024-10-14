@@ -1,5 +1,5 @@
 ########################################
-# Name:
+# Name: Kassandra Carrasco
 # Collaborators:
 # Estimated time spent (hrs):
 ########################################
@@ -18,10 +18,18 @@ def draw_pyramid():
     """
 
     gw = GWindow(WIDTH, HEIGHT)
+    brick_x =(WIDTH)/2
+    brick_y = 400
 
     # You got it from here
-
-
+    brick = GRect(brick_x, brick_y, BRICK_WIDTH, BRICK_HEIGHT)
+    BRICKS_IN_BASE =15  
+    
+    while BRICKS_IN_BASE > 0:
+        for i in range(BRICKS_IN_BASE):
+            gw.add(brick)
+        BRICKS_IN_BASE -= 1
+        brick_y -= BRICK_HEIGHT 
 
 
 
